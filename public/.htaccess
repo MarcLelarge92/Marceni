@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+REQUEST_RULE ^(.*)$ /index.php?path=$14 [NC,L,QSA]

@@ -14,7 +14,7 @@ $router = new AltoRouter();
 
 // map routes
 $router->map('GET', '/','index','index');
-$router->map('GET', '/contact','contact','contact'); 
+$router->map('GET', '/Contact','contact','contact'); 
 $router->map('GET', '/404','404','404'); 
 
 // match routes

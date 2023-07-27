@@ -28,10 +28,16 @@ if (is_array($match)) {
     if (is_callable($match['target'])) {
         call_user_func_array($match['target'], $params);
     } else {
+        ob_start();
         include "../app/views/{$match['target']}.view.php";
+        $pageContent = ob_get_clean();
     }
 } else {
     // No match found, show 404 page
     include "../app/views/404.view.php";
+    $pageContent = ob_get_clean();
 }
 
+// select layout
+
+include '../app/views/layouts/default-layout.view.php';

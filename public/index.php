@@ -40,4 +40,4 @@ if (is_array($match)) {
 
 // select layout
 
-include '../app/views/layouts/default-layout.view.php';
+include '../app/views/layouts/default.view.php';

@@ -3,6 +3,7 @@
     "require": {
         "fakerphp/faker": "^1.9",
         "altorouter/altorouter": "^2.0",
-        "filp/whoops": "^2.15"
+        "filp/whoops": "^2.15",
+        "twbs/bootstrap": "5.3.1"
     }
 }

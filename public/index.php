@@ -16,7 +16,6 @@ $router->map('GET', '/category', function(){
     require VIEW_PATH . '/category/show.php';
 });
 $match = $router->match();
-var_dump($match); // Vérifier la valeur de $match pour voir s'il y a une correspondance de route.
 
 if ($match && is_callable($match['target'])) {
     call_user_func($match['target']);

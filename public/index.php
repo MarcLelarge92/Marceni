@@ -1,28 +1,27 @@
 <?php 
 
 // autoload
+
 require '../vendor/autoload.php';
 
 // start altorouter 
 $router = new AltoRouter();
 
-define('VIEW_PATH',  dirname(__DIR__) . '/views');
+define('VIEW_PATH', dirname(__DIR__) . '/views');
 
-$router->map('GET', '/', function(){
+$router->map('GET', '/', function() {
     require VIEW_PATH . '/post/index.php';
-});
+}, 'home');
 
-$router->map('GET', '/category', function(){
+$router->map('GET', '/category', function() {
     require VIEW_PATH . '/category/show.php';
-});
+}, 'category');
+
 $match = $router->match();
 
-if ($match && is_callable($match['target'])) {
+if ($match) {
     call_user_func($match['target']);
 } else {
-    // Gérer l'absence de correspondance de route ici (afficher une page 404, par exemple).
-    // Par exemple : require VIEW_PATH . '/error404.php';
+    echo "Page non trouvée (404)";
 }
 
-
-?>

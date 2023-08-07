@@ -4,8 +4,6 @@
 
 require '../vendor/autoload.php';
 
-define ('DEBUG_TIME', microtime(true));
-
 // start altorouter 
 $router = new AltoRouter();
 

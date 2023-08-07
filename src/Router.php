@@ -22,4 +22,13 @@ class Router {
         $this->router->map('GET', $url, $view, $name);
         return $this;
     }
+
+    public function run()
+    {
+        $match = $this->router->match();
+        $views = $match['target'];
+        require $this->viewPath . $view . '.php';
+
+        return $this;
+    }
 }

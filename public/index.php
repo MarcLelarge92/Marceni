@@ -19,8 +19,8 @@ $router->map('GET', '/', function() {
     require VIEW_PATH . '/post/index.php';
 }, 'home');
 
-var_dump(VIEW_PATH . '/category/show.php');
-$router->map('GET', '/category/', function() {
+//var_dump(VIEW_PATH . '/category/show.php');
+$router->map('GET', '/category', function() {
     require VIEW_PATH . '/category/show.php';
 }, 'category');
 

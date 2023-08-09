@@ -4,16 +4,23 @@
 
 require '../vendor/autoload.php';
 
+$whoops = new \Whoops\Run;
+$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+$whoops->register();
+
 // start altorouter 
 $router = new AltoRouter();
 
 define('VIEW_PATH', dirname(__DIR__) . '/views');
 
+//var_dump(VIEW_PATH);
+
 $router->map('GET', '/', function() {
     require VIEW_PATH . '/post/index.php';
 }, 'home');
 
-$router->map('GET', '/category', function() {
+var_dump(VIEW_PATH . '/category/show.php');
+$router->map('GET', '/category/', function() {
     require VIEW_PATH . '/category/show.php';
 }, 'category');
 

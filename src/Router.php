@@ -23,11 +23,11 @@ class Router {
         return $this;
     }
 
-    public function run()
+    public function run() : self
     {
         $match = $this->router->match();
         $views = $match['target'];
-        $router = $this->router;
+        $router = $this;
         require $this->viewPath . $view . '.php';
 
         return $this;

@@ -38,10 +38,10 @@ $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
         <div class="card">
             <div class="card-body">
             <h5 class="card-title"><?= $post->getName() !== null ? htmlentities($post->getName()) : '' ?></h5>
-            <p class="text-muted"><?= $post->getCreatedAt()->format( 'd F Y H:i') ?></p>
+            <p class="text-muted"><?= $post->getCreatedAt() !== null ? $post->getCreatedAt()->format('d F Y H:i') : '' ?></p>
             <p><?= $post->getExcerpt() !== null ? $post->getExcerpt() : '' ?></p>
             <p>
-                <a href=<?= $router->generate('post', ['id' => $post->getID(),'slug' => $post->getSlug()])?> class="btn btn-primary">Voir plus</a>
+            <a href="#" class="btn btn-primary">Voir plus</a>
             </p>
             </div>
         </div>

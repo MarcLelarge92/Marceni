@@ -22,7 +22,9 @@ class Router {
         $match = $this->router->match(); // Tente de faire correspondre l'URL actuelle à une route définie
 
         if ($match) {
+          
             $view = $match['target']; // Récupère la vue associée à la route correspondante
+            $params = $match['params'];
             $router = $this; // Stocke une référence à l'objet Router dans la variable locale $router
             require $this->viewPath . $view . '.php'; // Inclut la vue associée à la route correspondante
 

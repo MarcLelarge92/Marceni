@@ -22,6 +22,10 @@ class Post {
     {
         return $this->name;
     } 
+    public function getFormattedContent(): ?string
+    {
+        return nl2br(htmlentities($this->content, 60));
+    } 
     public function getExcerpt(): ?string
     {
         if ($this->content === null){
@@ -42,6 +46,6 @@ class Post {
 
     public function getId(): ?int
     {
-        return $this->int;
+        return $this->id;
     } 
 }

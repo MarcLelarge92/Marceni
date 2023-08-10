@@ -42,7 +42,22 @@ $query = $pdo->query('SELECT * FROM posts ORDER BY created_at DESC LIMIT 12');
 $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
 ?>
 
-<?php require VIEW_PATH . '/layouts/header.php'; ?>
+<!DOCTYPE html>
+<html lang="fr" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Blog</title>
+</head>
+<body class="d-flex flex-column h-100">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a href="#" class="navbar-brand">Mon Site</a>
+    </nav>
+    
+    <div class="container mt-4">
+        <!-- Le contenu de votre page -->
+    </div>
 
 
     <div class="container mt-4 text-center">
@@ -58,7 +73,7 @@ $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
             <p class="text-muted"><?= $post->getCreatedAt() !== null ? $post->getCreatedAt()->format('d F Y H:i') : '' ?></p>
             <p><?= $post->getExcerpt() !== null ? $post->getExcerpt() : '' ?></p>
             <p>
-            <a href="#" class="btn btn-primary">Voir plus</a>
+            <a href="article.php?id=<?= $post->getId() ?>&slug=<?= $post->getSlug() ?>" class="btn btn-primary">Voir plus</a>
             </p>
             </div>
         </div>
@@ -74,4 +89,10 @@ $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
         <a href="<?= $router->generate('Home') ?>?pages=<?= $currentPage + 1 ?>" class="btn btn-primary ml-auto">Pages suivantes &raquo;</a>
     <?php endif ?>
 </div>
-<?php require VIEW_PATH . '/layouts/footer.php'; ?>
+<footer class="bg-light py-4 footer mt-auto">
+            <div class="container">
+            </div>    
+    </footer>
+    </div>
+</body>
+</html>

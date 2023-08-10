@@ -1,4 +1,5 @@
 <?php
+require 'post\index.php';
 
 $id = (int)$_GET['id']; // Assurez-vous de valider et de filtrer cette valeur pour des raisons de sécurité
 $slug = $_GET['slug'];

@@ -73,7 +73,7 @@ $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
             <p class="text-muted"><?= $post->getCreatedAt() !== null ? $post->getCreatedAt()->format('d F Y H:i') : '' ?></p>
             <p><?= $post->getExcerpt() !== null ? $post->getExcerpt() : '' ?></p>
             <p>
-            <a href="article.php?id=<?= $post->getId() ?>&slug=<?= $post->getSlug() ?>" class="btn btn-primary">Voir plus</a>
+            <a href="post/show.php?id=<?= $post->getId() ?>&slug=<?= $post->getSlug() ?>" class="btn btn-primary">Voir plus</a>
             </p>
             </div>
         </div>

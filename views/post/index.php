@@ -22,6 +22,21 @@ try {
     throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
 
+$currentPage = (int)($_GET['page'] ?? 1) ?: 1;
+if ($currentPage <= 0){
+    throw new Exception('numero de page invalide');
+}
+
+// Exécution d'une requête pour obtenir le nombre total d'enregistrements dans la table 'posts'
+$countQuery = $pdo->query('SELECT COUNT(id) FROM posts');
+$countResult = $countQuery->fetch(PDO::FETCH_NUM);
+$count = (int)$countResult[0]; // Conversion du résultat en nombre entier
+
+// Calcul du nombre total de pages nécessaires pour la pagination (12 éléments par page)
+$perPage = 12;
+$pages = ceil($count / $perPage);
+
+// Exécution d'une requête pour obtenir les premiers 12 enregistrements dans la table 'posts', triés par date de création
 $query = $pdo->query('SELECT * FROM posts ORDER BY created_at DESC LIMIT 12');
 
 $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
@@ -49,4 +64,12 @@ $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
     <?php endforeach ?>
 </div>
 
+<div class="div d-flex justify-content-between mt-4">
+    <?php if ($currentPage > 1): ?>
+        <a href="<?= $router->generate('Home') ?>?pages=<?= $currentPage - 1 ?>" class="btn btn-primary">&laquo; Pages précédentes</a>
+    <?php endif ?>
+    <?php if ($currentPage < $pages): ?>
+        <a href="<?= $router->generate('Home') ?>?pages=<?= $currentPage + 1 ?>" class="btn btn-primary ml-auto">Pages suivantes &raquo;</a>
+    <?php endif ?>
+</div>
 <?php require VIEW_PATH . '/layouts/footer.php'; ?>

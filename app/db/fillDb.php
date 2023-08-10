@@ -90,7 +90,7 @@ echo 'POSTS!';
 
 // creation comments
 
-for ($i = 0; $i < 144; $i++) {
+for ($i = 0; $i < 150; $i++) {
     $pdo->exec("INSERT INTO comments
                 SET pseudo= '{$faker->userName}',
                     email= '{$faker->email}',

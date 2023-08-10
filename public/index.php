@@ -21,7 +21,7 @@ $router->map('GET', '/', function() {
 }, 'category');
 
 // Association d'une route pour l'URL '/index' à une fonction de rappel
-$router->map('GET', '/index', function() {
+$router->map('GET', '/index', function() use ($router) {
     // Inclusion du fichier de vue 'index.php' pour la route 'Home'
     require VIEW_PATH . '/post/index.php';
 }, 'Home');

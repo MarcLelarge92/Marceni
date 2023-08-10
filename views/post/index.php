@@ -45,7 +45,9 @@ $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
 <?php require VIEW_PATH . '/layouts/header.php'; ?>
 
 
-<h1>mon blog</h1>
+    <div class="container mt-4 text-center">
+        <h1>Mon blog</h1>
+    </div>
 
 <div class="row">
     <?php foreach($posts as $post): ?>

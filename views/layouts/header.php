@@ -12,3 +12,5 @@
     </nav>
     
     <div class="container mt-4">
+        <!-- Le contenu de votre page -->
+    </div>

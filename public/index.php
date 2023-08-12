@@ -28,7 +28,7 @@ $router->map('GET', '/index', function() use ($router) {
 
 $router->map('GET', '/[*:slug]-[i:id]', function() use ($router){
     // Inclusion du fichier de vue 'index.php' pour la route 'Home'
-    require VIEW_PATH . '/post/show.php';
+    require VIEW_PATH . '/public/show.php';
 }, 'Article');
 
 // Tentative de correspondance de l'URL actuelle à une route définie dans le routeur

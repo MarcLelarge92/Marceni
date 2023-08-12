@@ -83,10 +83,10 @@ $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
 
 <div class="div d-flex justify-content-between mt-4">
     <?php if ($currentPage > 1): ?>
-        <a href="<?= $router->generate('Home') ?>?pages=<?= $currentPage - 1 ?>" class="btn btn-primary">&laquo; Pages précédentes</a>
+        <a href="<?= $router->generate('Home') ?>?page=<?= $currentPage - 1 ?>" class="btn btn-primary">&laquo; Pages précédentes</a>
     <?php endif ?>
     <?php if ($currentPage < $pages): ?>
-        <a href="<?= $router->generate('Home') ?>?pages=<?= $currentPage + 1 ?>" class="btn btn-primary ml-auto">Pages suivantes &raquo;</a>
+        <a href="<?= $router->generate('Home') ?>?page=<?= $currentPage + 1 ?>" class="btn btn-primary ml-auto">Pages suivantes &raquo;</a>
     <?php endif ?>
 </div>
 <footer class="bg-light py-4 footer mt-auto">

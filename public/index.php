@@ -17,18 +17,18 @@ define('VIEW_PATH', dirname(__DIR__) . '/views');
 // Association d'une route pour l'URL racine ("/") à une fonction de rappel
 $router->map('GET', '/', function() {
     // Inclusion du fichier de vue 'show.php' pour la route 'category'
-    require VIEW_PATH . '/category/show.php';
-}, 'category');
-
-// Association d'une route pour l'URL '/index' à une fonction de rappel
-$router->map('GET', '/index', function() use ($router) {
-    // Inclusion du fichier de vue 'index.php' pour la route 'Home'
     require VIEW_PATH . '/post/index.php';
 }, 'Home');
 
+// Association d'une route pour l'URL '/index' à une fonction de rappel
+$router->map('GET', '/category', function() use ($router) {
+    // Inclusion du fichier de vue 'index.php' pour la route 'Home'
+    require VIEW_PATH . '/category/show.php';
+}, 'category');
+
 $router->map('GET', '/[*:slug]-[i:id]', function() use ($router){
     // Inclusion du fichier de vue 'index.php' pour la route 'Home'
-    require VIEW_PATH . '/public/show.php';
+    require VIEW_PATH . '/post/show.php';
 }, 'Article');
 
 // Tentative de correspondance de l'URL actuelle à une route définie dans le routeur
